@@ -54,7 +54,6 @@ function App() {
 
                 <button onClick={async event => {
 
-                    console.log(deals);
                     // const res = await PipedrivePersonsService.get();
                     // console.log(res);
                 }}>Get info
