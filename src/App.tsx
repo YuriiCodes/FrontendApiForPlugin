@@ -1,12 +1,7 @@
 import React from 'react';
 import './App.css';
 import {ApiTokenService} from "./API/services/apiToken/apiToken.service";
-import {PipedrivePersonsService} from "./API/services/pipedrvePersons/pipedrivePersons.service";
-
-const pipedrive = require('pipedrive');
-const defaultClient = pipedrive.ApiClient.instance;
-let apiToken = defaultClient.authentications.api_key;
-apiToken.apiKey = '9c1ba905eeccc08eb6df0f4397b90aa7f85a6172';
+import {PipedrivePersonsService} from "./API/services/pipedrive/pipedrivePersons.service";
 
 function App() {
     return (
@@ -54,22 +49,22 @@ function App() {
 
                 <button onClick={async event => {
 
-                    // const res = await PipedrivePersonsService.get();
-                    // console.log(res);
-                }}>Get info
+                    const res = await PipedrivePersonsService.get();
+                    console.log(res);
+                }}>Get all persons info
                 </button>
 
 
                 {/*ADD PERSON*/}
                 <button onClick={async event => {
                     const personInfo = {
-                        name: "Elon Musk",
+                        name: "Elon Musk2121",
                         email: "elonmusk@tesla.com",
                         phone: "123456789"
                     }
                     const res = await PipedrivePersonsService.create(personInfo);
                     console.log(res);
-                }}>Create person
+                }}>Create person [name, email and phone are hardcoded into object inside function]
                 </button>
             </div>
             <hr/>
@@ -77,12 +72,13 @@ function App() {
             <div>
                 <button onClick={async event => {
                     const leadInfo = {
-                        title: "Lead title",
-                        value: 100,
-                        currency: "USD",
-                        person_name: "Elon Musk",
-                        person_email: ""
+                        name: "Elon Musk2121",
+                        email: "elonmusk@gmail.com",
+                        phone: "123456789",
+                        lead_name: "Lead title",
                     }
+                    const res = await PipedrivePersonsService.createLead(leadInfo);
+                    console.log(res);
                 }}> Create lead
                 </button>
             </div>
