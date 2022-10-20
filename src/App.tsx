@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {ApiTokenService} from "./API/services/apiToken/apiToken.service";
+import {UserInfoService} from "./API/services/userInfo/userInfo.service";
 import {PipedrivePersonsService} from "./API/services/pipedrive/pipedrivePersons.service";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
             <h2>Backend for storing tokens info api</h2>
             <div>
                 <button onClick={async event => {
-                    const res = await ApiTokenService.get("mmUserLoginTest2");
+                    const res = await UserInfoService.get("mmUserLoginTest2");
                     console.log(res);
                 }}>Get info
                 </button>
@@ -22,7 +22,7 @@ function App() {
                         login: "TesTLOGINFORLinkedIN2@mail.com",
                         password: "TesTPASSWORDFORLinkedIN2"
                     }
-                    const res = await ApiTokenService.create(data);
+                    const res = await UserInfoService.create(data);
                     console.log(res);
                 }}>Create
                 </button>
@@ -35,13 +35,13 @@ function App() {
                         login: "TesTLOGINFORLinkedIN2@mail.com",
                         password: "TesTPASSWORDFORLinkedIN2"
                     }
-                    const res = await ApiTokenService.update(data);
+                    const res = await UserInfoService.update(data);
                     console.log(res);
                 }}>Update
                 </button>
 
                 <button onClick={async event => {
-                    const res = await ApiTokenService.delete("VitaliiMattermostId2");
+                    const res = await UserInfoService.delete("VitaliiMattermostId2");
                     console.log(res);
                 }}>Delete
                 </button>

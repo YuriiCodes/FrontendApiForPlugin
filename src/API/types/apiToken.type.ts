@@ -1,4 +1,4 @@
-export interface AddApiToken {
+export interface userInfo {
     mattermostUserId: string,
     pipedriveApiKey: string,
     login: string,
