@@ -10,7 +10,7 @@ function App() {
             <h2>Backend for storing tokens info api</h2>
             <div>
                 <button onClick={async event => {
-                    const res = await ApiTokenService.get("VitaliiMattermostId");
+                    const res = await ApiTokenService.get("mmUserLoginTest2");
                     console.log(res);
                 }}>Get info
                 </button>
@@ -18,7 +18,9 @@ function App() {
                 <button onClick={async event => {
                     const data = {
                         pipedriveApiKey: "VitaliiPipeDriveApiKey2",
-                        mattermostUserId: "VitaliiMattermostId2"
+                        mattermostUserId: "VitaliiMattermostId2",
+                        login: "TesTLOGINFORLinkedIN2@mail.com",
+                        password: "TesTPASSWORDFORLinkedIN2"
                     }
                     const res = await ApiTokenService.create(data);
                     console.log(res);
@@ -29,7 +31,9 @@ function App() {
                 <button onClick={async event => {
                     const data = {
                         pipedriveApiKey: "VitaliiPipeDriveApiKey2.1",
-                        mattermostUserId: "VitaliiMattermostId2"
+                        mattermostUserId: "VitaliiMattermostId2",
+                        login: "TesTLOGINFORLinkedIN2@mail.com",
+                        password: "TesTPASSWORDFORLinkedIN2"
                     }
                     const res = await ApiTokenService.update(data);
                     console.log(res);
