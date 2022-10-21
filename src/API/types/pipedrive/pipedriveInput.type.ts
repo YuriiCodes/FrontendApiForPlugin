@@ -1,12 +1,8 @@
-export interface AddPerson{
-    name: string,
-    email: string,
-    phone: string
-}
-
 export interface AddLead{
-    name: string,
     email: string,
+    name: string,
     phone: string,
-    lead_name: string
+    lead_name: string,
+    position: string,
+    LinkedIn: string
 }

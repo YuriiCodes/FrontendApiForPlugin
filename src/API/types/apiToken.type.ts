@@ -3,5 +3,10 @@ export interface userInfo {
     pipedriveApiKey: string,
     login: string,
     password: string,
+
 }
 
+
+export interface isUserDataSubmitted {
+    status: boolean,
+}
