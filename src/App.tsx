@@ -9,6 +9,9 @@ window.Api = API;
 
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
+
+    const [personId, setPersonId] = useState(-1);
+    const [leadTitle, setLeadTitle] = useState("");
     return (
         <div className="App">
 
@@ -86,7 +89,29 @@ function App() {
                     <button onClick={async event => {
                         const res = await API.pipedrive.findPersonsByTerm(searchTerm);
                         console.log(res.data);
-                    }}> Find all persons
+                    }}> Find  person by given search term
+                    </button>
+                </div>
+
+
+                <div>
+                    <input onChange={(e) => {
+                        setPersonId(
+                            parseInt(e.target.value)
+                        );
+
+                    }} placeholder="PersonID"/>
+                    <input onChange={(e) => {
+                        setLeadTitle(e.target.value);
+
+                    }} placeholder="Lead title"/>
+                    <button onClick={async event => {
+                        const res = await API.pipedrive.createLeadWithExistingPerson({
+                            person_id: personId,
+                            lead_name: leadTitle
+                        });
+                        console.log(res.data);
+                    }}> Add lead with existing person
                     </button>
                 </div>
             </div>
