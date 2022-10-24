@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {UserInfoService} from "./API/services/userInfo/userInfo.service";
 
@@ -8,7 +8,7 @@ import {API} from "./API";
 window.Api = API;
 
 function App() {
-
+    const [searchTerm, setSearchTerm] = useState("");
     return (
         <div className="App">
 
@@ -77,6 +77,18 @@ function App() {
                     console.log(res);
                 }}> Create lead
                 </button>
+
+                <div>
+                    <input onChange={(e) => {
+                        setSearchTerm(e.target.value);
+
+                    }} placeholder="Enter search term"/>
+                    <button onClick={async event => {
+                        const res = await API.pipedrive.findPersonsByTerm(searchTerm);
+                        console.log(res.data);
+                    }}> Find all persons
+                    </button>
+                </div>
             </div>
         </div>
 
